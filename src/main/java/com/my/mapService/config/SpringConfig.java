@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringConfig {
     @Bean
-    public MemberRepository memberRepository(){
+    public MemberRepository memberRepository() {
         return new MapMemberRepository();
     }
 }

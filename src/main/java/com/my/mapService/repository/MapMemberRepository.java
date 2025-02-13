@@ -29,9 +29,9 @@ public class MapMemberRepository implements MemberRepository{
 
     @Override
     public List<Member> findAll() {
-        List<Member>membersList =
+        List<Member> memberList =
                 new ArrayList<>(store.values());
-        return membersList;
+        return memberList;
     }
 
     @Override
@@ -39,34 +39,32 @@ public class MapMemberRepository implements MemberRepository{
         Optional<Member> result = store
                 .values()
                 .stream()
-                .filter(x ->x.getName().equals(name))
+                .filter(x -> x.getName().equals(name))
                 .findAny();
-//        findAny : 하나라도 있으면 값 찾아주고 , 없으면 null 반환
+        // findAny : 하나라도 있으면 값 찾아주고, 없으면 null 반환
         return result;
 
-//        for(Long key : store.keySet()){
+//        for (Long key : store.keySet()) {
 //            if(store.get(key).getName().equals(name)){
-//                Optional<Member> r= store.get(key);
-//                return r
+//                Optional<Member> r = Optional.ofNullable(store.get(key));
+//                return r;
 //            }
-        }
-
+//        }
+    }
 
     @Override
     public void deleteById(Long id) {
-    store.remove(id);
-
+        store.remove(id);
     }
 
     @Override
     public Member updateById(Long memberId, Member member) {
-        store.put(memberId,member);
+        store.put(memberId, member);
         return store.get(memberId);
     }
 
-
     public void clearStore() {
-        MapMemberRepository.store.clear();
+        store.clear();
         sequence = 1L;
     }
 }
