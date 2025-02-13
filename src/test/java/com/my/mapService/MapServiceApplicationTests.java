@@ -1,5 +1,6 @@
 package com.my.mapService;
 
+import com.my.mapService.dto.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,4 +11,4 @@ class MapServiceApplicationTests {
 	void contextLoads() {
 	}
 
-}
+
