@@ -10,5 +10,6 @@ class MapServiceApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+}
 
 

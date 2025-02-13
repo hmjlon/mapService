@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ *
+ */
 @Service
 @RequiredArgsConstructor
-public class MemberService {
+public static final class MemberService {
 //    1.필드 주입 방법
     @Autowired
     MapMemberRepository memberRepository;
@@ -27,7 +30,9 @@ public class MemberService {
 //회원 가입 기능
 public  Long join(Member member){
 //    같은 이름이 있는 중복회원은 x
-    Optional<Member>result = memberRepsitory.fidnByName(member.getName());
+    Object memberRepsitory = new Object();
+    Optional<Member>result;
+    result = memberRepsitory.clone();
     if(result.isPresent()) {
 //        같은 이름 존재
         return -1L;
